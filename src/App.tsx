@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Link, BrowserRouter, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Header from './Header';
 import ItemSelector from './ItemSelector';
+import MeatSelector from './MeatSelector';
 
 const AppContainer = styled.div`
   @import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Open+Sans');
@@ -39,19 +40,71 @@ const AppContainer = styled.div`
   h3 {
     font-size: 1.5rem;
   }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .centered {
+    text-align: center;
+  }
 `;
 
-class App extends Component {
+interface AppState {
+  item: string;
+  meat: string;
+  salsa: string;
+  drink: boolean;
+}
+
+class App extends Component<{}, AppState> {
+  constructor(props: any) {
+    super(props);
+  }
+
+  handleItemSelection = (item: string) => {
+    this.setState({ item });
+  };
+
+  handleMeatSelection = (meat: string) => {
+    this.setState({ meat });
+  };
+
   render() {
     return (
       <AppContainer>
-        <Header />
         <BrowserRouter>
-          <Route path="/" component={ItemSelector} />
+          <>
+            <Link to="/">
+              <Header />
+            </Link>
+            <Route path="/" exact render={() => <StartPage />} />
+            <Route
+              path="/item"
+              render={() => (
+                <ItemSelector handleSelection={this.handleItemSelection} />
+              )}
+            />
+            <Route
+              path="/meat"
+              render={() => (
+                <MeatSelector handleSelection={this.handleMeatSelection} />
+              )}
+            />
+          </>
         </BrowserRouter>
       </AppContainer>
     );
   }
 }
+
+const StartPage: React.FunctionComponent = () => (
+  <div className="centered">
+    <Link to="/item">
+      <h3>Place an order</h3>
+    </Link>
+  </div>
+);
 
 export default App;
