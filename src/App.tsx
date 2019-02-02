@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import Header from './Header';
 import ItemSelector from './ItemSelector';
 import MeatSelector from './MeatSelector';
+import SalsaSelector from './SalsaSelector';
+import DrinkSelector from './DrinkSelector';
 
 const AppContainer = styled.div`
   @import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Open+Sans');
@@ -71,6 +73,14 @@ class App extends Component<{}, AppState> {
     this.setState({ meat });
   };
 
+  handleSalsaSelection = (salsa: string) => {
+    this.setState({ salsa });
+  };
+
+  handleDrinkSelection = (drink: boolean) => {
+    this.setState({ drink });
+  };
+
   render() {
     return (
       <AppContainer>
@@ -90,6 +100,18 @@ class App extends Component<{}, AppState> {
               path="/meat"
               render={() => (
                 <MeatSelector handleSelection={this.handleMeatSelection} />
+              )}
+            />
+            <Route
+              path="/salsa"
+              render={() => (
+                <SalsaSelector handleSelection={this.handleSalsaSelection} />
+              )}
+            />
+            <Route
+              path="/drink"
+              render={() => (
+                <DrinkSelector handleSelection={this.handleDrinkSelection} />
               )}
             />
           </>

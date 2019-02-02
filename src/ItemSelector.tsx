@@ -1,29 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 import { Grid } from '@material-ui/core';
 
 import Taco from './icons/taco.svg';
 import Burrito from './icons/burrito.svg';
 import Bowl from './icons/bowl.svg';
 
+import SelectorContainer from './SelectorContainer';
 import Icon from './Icon';
-
-const ItemSelectorContainer = styled.div`
-  margin: 25px 0;
-
-  h2 {
-    margin-bottom: 50px;
-  }
-
-  a {
-    color: inherit;
-
-    &:hover {
-      color: #dddddd;
-    }
-  }
-`;
 
 class ItemSelector extends React.PureComponent<{
   handleSelection: (item: string) => void;
@@ -34,7 +18,7 @@ class ItemSelector extends React.PureComponent<{
 
   render() {
     return (
-      <ItemSelectorContainer>
+      <SelectorContainer>
         <Grid container>
           <Grid item xs={12}>
             <div className="centered">
@@ -69,7 +53,7 @@ class ItemSelector extends React.PureComponent<{
             </Link>
           </Grid>
         </Grid>
-      </ItemSelectorContainer>
+      </SelectorContainer>
     );
   }
 }
