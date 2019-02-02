@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.9.1",
+    "@types/dinero.js": "^1.4.0",
     "@types/jest": "23.3.13",
     "@types/material-ui": "^0.21.5",
     "@types/node": "10.12.21",
@@ -11,6 +12,7 @@
     "@types/react-dom": "16.0.11",
     "@types/react-router-dom": "^4.3.1",
     "@types/styled-components": "^4.1.6",
+    "dinero.js": "^1.5.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-router-dom": "^4.3.1",

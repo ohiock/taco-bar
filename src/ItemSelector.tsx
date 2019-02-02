@@ -6,7 +6,7 @@ import Taco from './icons/taco.svg';
 import Burrito from './icons/burrito.svg';
 import Bowl from './icons/bowl.svg';
 
-import SelectorContainer from './SelectorContainer';
+import BaseContainer from './BaseContainer';
 import Icon from './Icon';
 
 class ItemSelector extends React.PureComponent<{
@@ -18,7 +18,7 @@ class ItemSelector extends React.PureComponent<{
 
   render() {
     return (
-      <SelectorContainer>
+      <BaseContainer>
         <Grid container>
           <Grid item xs={12}>
             <div className="centered">
@@ -26,7 +26,10 @@ class ItemSelector extends React.PureComponent<{
             </div>
           </Grid>
           <Grid item xs={4}>
-            <Link to="/meat" onClick={() => this.props.handleSelection('taco')}>
+            <Link
+              to="/meat"
+              onClick={() => this.props.handleSelection('Tacos')}
+            >
               <div className="centered">
                 <Icon src={Taco} />
                 <h3>Taco! 7.99</h3>
@@ -36,7 +39,7 @@ class ItemSelector extends React.PureComponent<{
           <Grid item xs={4}>
             <Link
               to="/meat"
-              onClick={() => this.props.handleSelection('burrito')}
+              onClick={() => this.props.handleSelection('Burrito')}
             >
               <div className="centered">
                 <Icon src={Burrito} />
@@ -45,7 +48,7 @@ class ItemSelector extends React.PureComponent<{
             </Link>
           </Grid>
           <Grid item xs={4}>
-            <Link to="/meat" onClick={() => this.props.handleSelection('bowl')}>
+            <Link to="/meat" onClick={() => this.props.handleSelection('Bowl')}>
               <div className="centered">
                 <Icon src={Bowl} />
                 <h3>Bowl! 6.99</h3>
@@ -53,7 +56,7 @@ class ItemSelector extends React.PureComponent<{
             </Link>
           </Grid>
         </Grid>
-      </SelectorContainer>
+      </BaseContainer>
     );
   }
 }

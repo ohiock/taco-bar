@@ -6,7 +6,7 @@ import Onion from './icons/onion.svg';
 import ChiliPepper from './icons/chili-pepper.svg';
 import BellPepper from './icons/bell-pepper.svg';
 
-import SelectorContainer from './SelectorContainer';
+import BaseContainer from './BaseContainer';
 import Icon from './Icon';
 
 class SalsaSelector extends React.PureComponent<{
@@ -14,17 +14,17 @@ class SalsaSelector extends React.PureComponent<{
 }> {
   render() {
     return (
-      <SelectorContainer>
+      <BaseContainer>
         <Grid container>
           <Grid item xs={12}>
             <div className="centered">
-              <h2>What salsa would you like on your order?</h2>
+              <h2>What kind of salsa?</h2>
             </div>
           </Grid>
           <Grid item xs={4}>
             <Link
               to="/drink"
-              onClick={() => this.props.handleSelection('pico de gallo')}
+              onClick={() => this.props.handleSelection('Pico de Gallo')}
             >
               <div className="centered">
                 <Icon src={Onion} />
@@ -35,7 +35,7 @@ class SalsaSelector extends React.PureComponent<{
           <Grid item xs={4}>
             <Link
               to="/drink"
-              onClick={() => this.props.handleSelection('habanero devil sauce')}
+              onClick={() => this.props.handleSelection('Habanero Devil Sauce')}
             >
               <div className="centered">
                 <Icon src={ChiliPepper} />
@@ -46,7 +46,7 @@ class SalsaSelector extends React.PureComponent<{
           <Grid item xs={4}>
             <Link
               to="/drink"
-              onClick={() => this.props.handleSelection('verde salsa')}
+              onClick={() => this.props.handleSelection('Verde Salsa')}
             >
               <div className="centered">
                 <Icon src={BellPepper} />
@@ -55,7 +55,7 @@ class SalsaSelector extends React.PureComponent<{
             </Link>
           </Grid>
         </Grid>
-      </SelectorContainer>
+      </BaseContainer>
     );
   }
 }

@@ -5,7 +5,7 @@ import { Grid } from '@material-ui/core';
 import Drink from './icons/drink.svg';
 import No from './icons/no.svg';
 
-import SelectorContainer from './SelectorContainer';
+import BaseContainer from './BaseContainer';
 import Icon from './Icon';
 
 class DrinkSelector extends React.PureComponent<{
@@ -13,7 +13,7 @@ class DrinkSelector extends React.PureComponent<{
 }> {
   render() {
     return (
-      <SelectorContainer>
+      <BaseContainer>
         <Grid container>
           <Grid item xs={12}>
             <div className="centered">
@@ -43,7 +43,7 @@ class DrinkSelector extends React.PureComponent<{
             </Link>
           </Grid>
         </Grid>
-      </SelectorContainer>
+      </BaseContainer>
     );
   }
 }

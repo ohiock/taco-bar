@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const SelectorContainer = styled.div`
+const BaseContainer = styled.div`
   margin: 25px 0;
 
   h2 {
@@ -16,4 +16,4 @@ const SelectorContainer = styled.div`
   }
 `;
 
-export default SelectorContainer;
+export default BaseContainer;

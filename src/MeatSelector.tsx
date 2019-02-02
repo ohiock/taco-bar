@@ -6,7 +6,7 @@ import Steak from './icons/steak.svg';
 import Chicken from './icons/chicken-leg.svg';
 import No from './icons/no.svg';
 
-import SelectorContainer from './SelectorContainer';
+import BaseContainer from './BaseContainer';
 import Icon from './Icon';
 
 class MeatSelector extends React.PureComponent<{
@@ -14,28 +14,28 @@ class MeatSelector extends React.PureComponent<{
 }> {
   render() {
     return (
-      <SelectorContainer>
+      <BaseContainer>
         <Grid container>
           <Grid item xs={12}>
             <div className="centered">
-              <h2>What meat would you like on your order?</h2>
+              <h2>What kind of meat?</h2>
             </div>
           </Grid>
           <Grid item xs={4}>
             <Link
               to="/salsa"
-              onClick={() => this.props.handleSelection('steak')}
+              onClick={() => this.props.handleSelection('Beef')}
             >
               <div className="centered">
                 <Icon src={Steak} />
-                <h3>Steak</h3>
+                <h3>Beef</h3>
               </div>
             </Link>
           </Grid>
           <Grid item xs={4}>
             <Link
               to="/salsa"
-              onClick={() => this.props.handleSelection('chicken')}
+              onClick={() => this.props.handleSelection('Chicken')}
             >
               <div className="centered">
                 <Icon src={Chicken} />
@@ -46,7 +46,7 @@ class MeatSelector extends React.PureComponent<{
           <Grid item xs={4}>
             <Link
               to="/salsa"
-              onClick={() => this.props.handleSelection('none')}
+              onClick={() => this.props.handleSelection('No meat')}
             >
               <div className="centered">
                 <Icon src={No} />
@@ -55,7 +55,7 @@ class MeatSelector extends React.PureComponent<{
             </Link>
           </Grid>
         </Grid>
-      </SelectorContainer>
+      </BaseContainer>
     );
   }
 }

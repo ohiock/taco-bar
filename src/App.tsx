@@ -7,6 +7,7 @@ import ItemSelector from './ItemSelector';
 import MeatSelector from './MeatSelector';
 import SalsaSelector from './SalsaSelector';
 import DrinkSelector from './DrinkSelector';
+import Confirmation from './Confirmation';
 
 const AppContainer = styled.div`
   @import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Open+Sans');
@@ -53,7 +54,7 @@ const AppContainer = styled.div`
   }
 `;
 
-interface AppState {
+export interface AppState {
   item: string;
   meat: string;
   salsa: string;
@@ -63,21 +64,28 @@ interface AppState {
 class App extends Component<{}, AppState> {
   constructor(props: any) {
     super(props);
+
+    this.state = {
+      item: '',
+      meat: '',
+      salsa: '',
+      drink: false
+    };
   }
 
-  handleItemSelection = (item: string) => {
+  handleItemSelection = (item: string): void => {
     this.setState({ item });
   };
 
-  handleMeatSelection = (meat: string) => {
+  handleMeatSelection = (meat: string): void => {
     this.setState({ meat });
   };
 
-  handleSalsaSelection = (salsa: string) => {
+  handleSalsaSelection = (salsa: string): void => {
     this.setState({ salsa });
   };
 
-  handleDrinkSelection = (drink: boolean) => {
+  handleDrinkSelection = (drink: boolean): void => {
     this.setState({ drink });
   };
 
@@ -113,6 +121,10 @@ class App extends Component<{}, AppState> {
               render={() => (
                 <DrinkSelector handleSelection={this.handleDrinkSelection} />
               )}
+            />
+            <Route
+              path="/confirmation"
+              render={() => <Confirmation selections={this.state} />}
             />
           </>
         </BrowserRouter>
