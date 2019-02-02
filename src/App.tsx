@@ -89,6 +89,15 @@ class App extends Component<{}, AppState> {
     this.setState({ drink });
   };
 
+  restartOrder = (): void => {
+    this.setState({
+      item: '',
+      meat: '',
+      salsa: '',
+      drink: false
+    });
+  };
+
   render() {
     return (
       <AppContainer>
@@ -124,8 +133,14 @@ class App extends Component<{}, AppState> {
             />
             <Route
               path="/confirmation"
-              render={() => <Confirmation selections={this.state} />}
+              render={() => (
+                <Confirmation
+                  selections={this.state}
+                  restartOrder={this.restartOrder}
+                />
+              )}
             />
+            <Route path="/complete" exact render={() => <CompletePage />} />
           </>
         </BrowserRouter>
       </AppContainer>
@@ -138,6 +153,12 @@ const StartPage: React.FunctionComponent = () => (
     <Link to="/item">
       <h3>Place an order</h3>
     </Link>
+  </div>
+);
+
+const CompletePage: React.FunctionComponent = () => (
+  <div className="centered">
+    <h2>Thanks for your order!</h2>
   </div>
 );
 

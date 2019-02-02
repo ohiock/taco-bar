@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Grid } from '@material-ui/core';
 import Dinero from 'dinero.js';
@@ -8,12 +9,21 @@ import BaseContainer from './BaseContainer';
 
 const ConfirmationContainer = styled(BaseContainer)`
   .totals {
-    margin: 25px 0 0 0;
+    margin: 25px 0;
+  }
+
+  a {
+    margin: 10px;
+  }
+
+  .complete h3 {
+    background: #ed553b;
   }
 `;
 
 class Confirmation extends React.Component<{
   selections: AppState;
+  restartOrder: () => void;
 }> {
   getPrice = (selection: string): Dinero.Dinero => {
     const prices: { [key: string]: Dinero.Dinero } = {
@@ -36,7 +46,7 @@ class Confirmation extends React.Component<{
     subtotal = subtotal.add(this.getPrice(this.props.selections.item));
 
     if (this.props.selections.drink) {
-      subtotal = subtotal.add(this.getPrice('drink'));
+      subtotal = subtotal.add(this.getPrice('Drink'));
     }
 
     return subtotal;
@@ -72,12 +82,20 @@ class Confirmation extends React.Component<{
             price={this.getPrice(this.props.selections.salsa)}
           />
           {this.props.selections.drink && (
-            <Row label="- Drink" price={this.getPrice('drink')} />
+            <Row label="- Drink" price={this.getPrice('Drink')} />
           )}
           <Grid container item xs={12} className="totals">
             <Row label="Subtotal:" price={this.getSubtotal()} />
             <Row label="Tax (8.445%):" price={this.getTax()} />
             <Row label="Total:" price={this.getTotal()} />
+          </Grid>
+          <Grid item xs={12}>
+            <Link to="/item" onClick={this.props.restartOrder}>
+              <h3>Restart</h3>
+            </Link>
+            <Link to="/complete" className="complete">
+              <h3>Complete Order</h3>
+            </Link>
           </Grid>
         </Grid>
       </ConfirmationContainer>

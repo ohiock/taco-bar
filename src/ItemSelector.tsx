@@ -32,7 +32,7 @@ class ItemSelector extends React.PureComponent<{
             >
               <div className="centered">
                 <Icon src={Taco} />
-                <h3>Taco! 7.99</h3>
+                <h3>Tacos! 7.99</h3>
               </div>
             </Link>
           </Grid>
