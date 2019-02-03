@@ -72,22 +72,37 @@ class Confirmation extends React.Component<{
           <Row
             label={this.props.selections.item}
             price={this.getPrice(this.props.selections.item)}
+            containerName="item"
           />
           <Row
             label={`- ${this.props.selections.meat}`}
             price={this.getPrice(this.props.selections.meat)}
+            containerName="meat"
           />
           <Row
             label={`- ${this.props.selections.salsa}`}
             price={this.getPrice(this.props.selections.salsa)}
+            containerName="salsa"
           />
           {this.props.selections.drink && (
-            <Row label="- Drink" price={this.getPrice('Drink')} />
+            <Row
+              label="- Drink"
+              price={this.getPrice('Drink')}
+              containerName="drink"
+            />
           )}
           <Grid container item xs={12} className="totals">
-            <Row label="Subtotal:" price={this.getSubtotal()} />
-            <Row label="Tax (8.445%):" price={this.getTax()} />
-            <Row label="Total:" price={this.getTotal()} />
+            <Row
+              label="Subtotal:"
+              price={this.getSubtotal()}
+              containerName="subtotal"
+            />
+            <Row
+              label="Tax (8.445%):"
+              price={this.getTax()}
+              containerName="tax"
+            />
+            <Row label="Total:" price={this.getTotal()} containerName="total" />
           </Grid>
           <Grid item xs={12} className="centered">
             <Link to="/item" onClick={this.props.restartOrder} className="link">
@@ -106,13 +121,14 @@ class Confirmation extends React.Component<{
 const Row: React.FunctionComponent<{
   label: string;
   price: Dinero.Dinero;
-}> = ({ label, price }) => (
+  containerName: string;
+}> = ({ label, price, containerName }) => (
   <Grid container item xs={12} className="centered">
     <Grid item xs={4} />
     <Grid item xs={2} className="left">
       {label}
     </Grid>
-    <Grid item xs={2} className="right">
+    <Grid item xs={2} className={`${containerName}-container right`}>
       {price.toFormat('$0,0.00')}
     </Grid>
     <Grid item xs={4} />
