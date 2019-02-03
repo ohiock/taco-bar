@@ -32,11 +32,15 @@ This is pretty simple take on the taco shack exercise. There are only a few diff
 
 ## Structure
 
-The app is split up into individual files for each of the "pages". In some cases, I pull out sections of a component into a FunctionComponent to make it a bit easier to digest what's happening. If that component that I split out is used in multiple places, I pull it to its own file, otherwise it will generally be put to the bottom of the file.
+Create React App was used as a starting point. The app is split up into individual files for each of the "pages". In some cases, I pull out sections of a component into a FunctionComponent to make it a bit easier to digest what's happening. If that component that I split out is used in multiple places, I pull it to its own file, otherwise it will generally be put to the bottom of the file.
 
 Since this was a simple, small app, I didn't feel the need to include redux/mobx. I think a lot of times, developers jump the gun on that decision and introduce uneccessary complexity to their app.
 
 You'll also notice that I'm leveraging Typescript, which I think makes development much easier.
+
+## Handling Currency
+
+Handling money in Javascript can be tricky (even with this being a simple exercise), so I opted to use Dinero.js. This made calculations dead simple and gave me confidence in the totals being displayed.
 
 ## Routing
 
