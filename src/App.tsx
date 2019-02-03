@@ -19,6 +19,10 @@ const AppContainer = styled.div`
   color: #ffffff;
   font-family: 'Open Sans', sans-serif;
 
+  .centered {
+    text-align: center;
+  }
+
   h1,
   h2,
   h3 {
@@ -47,10 +51,17 @@ const AppContainer = styled.div`
   a {
     color: inherit;
     text-decoration: none;
-  }
 
-  .centered {
-    text-align: center;
+    &.link {
+      padding: 5px 10px;
+
+      background: #068587;
+      font-family: 'Gloria Hallelujah', cursive;
+
+      &:hover {
+        background: #112f41;
+      }
+    }
   }
 `;
 
@@ -150,8 +161,8 @@ class App extends Component<{}, AppState> {
 
 const StartPage: React.FunctionComponent = () => (
   <div className="centered">
-    <Link to="/item">
-      <h3>Place an order</h3>
+    <Link to="/item" className="link">
+      Place an order
     </Link>
   </div>
 );

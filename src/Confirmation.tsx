@@ -16,7 +16,7 @@ const ConfirmationContainer = styled(BaseContainer)`
     margin: 10px;
   }
 
-  .complete h3 {
+  a.link.complete {
     background: #ed553b;
   }
 `;
@@ -90,11 +90,11 @@ class Confirmation extends React.Component<{
             <Row label="Total:" price={this.getTotal()} />
           </Grid>
           <Grid item xs={12}>
-            <Link to="/item" onClick={this.props.restartOrder}>
-              <h3>Restart</h3>
+            <Link to="/item" onClick={this.props.restartOrder} className="link">
+              Restart
             </Link>
-            <Link to="/complete" className="complete">
-              <h3>Complete Order</h3>
+            <Link to="/complete" className="link complete">
+              Complete Order
             </Link>
           </Grid>
         </Grid>
