@@ -66,7 +66,7 @@ class Confirmation extends React.Component<{
     return (
       <ConfirmationContainer>
         <Grid container>
-          <Grid item xs={12}>
+          <Grid item xs={12} className="centered">
             <h2>Please confirm your order</h2>
           </Grid>
           <Row
@@ -89,7 +89,7 @@ class Confirmation extends React.Component<{
             <Row label="Tax (8.445%):" price={this.getTax()} />
             <Row label="Total:" price={this.getTotal()} />
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} className="centered">
             <Link to="/item" onClick={this.props.restartOrder} className="link">
               Restart
             </Link>
@@ -107,15 +107,16 @@ const Row: React.FunctionComponent<{
   label: string;
   price: Dinero.Dinero;
 }> = ({ label, price }) => (
-  <>
-    <Grid item xs={2}>
+  <Grid container item xs={12} className="centered">
+    <Grid item xs={4} />
+    <Grid item xs={2} className="left">
       {label}
     </Grid>
-    <Grid item xs={2}>
+    <Grid item xs={2} className="right">
       {price.toFormat('$0,0.00')}
     </Grid>
-    <Grid item xs={8} />
-  </>
+    <Grid item xs={4} />
+  </Grid>
 );
 
 export default Confirmation;

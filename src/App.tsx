@@ -23,6 +23,14 @@ const AppContainer = styled.div`
     text-align: center;
   }
 
+  .left {
+    text-align: left;
+  }
+
+  .right {
+    text-align: right;
+  }
+
   h1,
   h2,
   h3 {

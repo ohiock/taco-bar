@@ -20,7 +20,8 @@ class DrinkSelector extends React.PureComponent<{
               <h2>Would you like to add a drink?</h2>
             </div>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={2} />
+          <Grid item xs={4}>
             <Link
               to="/confirmation"
               onClick={() => this.props.handleSelection(true)}
@@ -31,7 +32,7 @@ class DrinkSelector extends React.PureComponent<{
               </div>
             </Link>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={4}>
             <Link
               to="/confirmation"
               onClick={() => this.props.handleSelection(false)}
