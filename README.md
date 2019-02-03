@@ -40,7 +40,7 @@ You'll also notice that I'm leveraging Typescript, which I think makes developme
 
 ## Handling Currency
 
-Handling money in Javascript can be tricky (even with this being a simple exercise), so I opted to use Dinero.js. This made calculations dead simple and gave me confidence in the totals being displayed.
+Handling money in JavaScript can be tricky (even with this being a simple exercise), so I opted to use Dinero.js. This made calculations dead simple and gave me confidence in the totals being displayed.
 
 ## Routing
 
